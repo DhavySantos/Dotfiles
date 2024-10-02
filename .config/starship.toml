@@ -1,0 +1,11 @@
+format="$os$directory$git_branch$package$rust\n$character"
+
+[character]
+success_symbol = ' [󱞩](bold green)'
+error_symbol = ' [󱞩](bold red)'
+
+[os]
+disabled = false
+
+[os.symbols]
+Arch = "󰣇 "
