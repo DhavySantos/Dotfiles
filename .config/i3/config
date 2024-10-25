@@ -1,10 +1,13 @@
-set $mod Mod4
 font CascadiaCove Nerd Font:monospace 8
+set $mod Mod4
 
 exec --no-startup-id sudo xremap --watch $HOME/.config/xremap.yaml
+exec --no-startup-id sudo cpupower frequency-set -g performance
+
 exec --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.png
 exec --no-startup-id picom --config $HOME/.config/picom.conf
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id polybar -c ~/.config/polybar.ini
 
 tiling_drag modifier titlebar
 floating_modifier $mod
@@ -71,3 +74,4 @@ gaps inner 5
 gaps outer 5
 
 assign [class="steam_apps*"] workspace number 0
+assign [class="gamescope"] workspace number 0
