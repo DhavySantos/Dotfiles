@@ -1,5 +1,6 @@
 export HISTFILE="$HOME/.cache/zsh-history"
 
+alias nft="sudo nft"
 alias ip="ip -c"
 alias vim="nvim"
 alias vi="nvim"
