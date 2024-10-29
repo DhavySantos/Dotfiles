@@ -1,8 +1,8 @@
 # DOTFILES PACKAGES
 sudo pacman -Sy --noconfirm \
-	xclip maim rofi kitty \
-	xorg-xrandr neovim stow \
+	xclip maim rofi-wayland kitty \
 	ttf-cascadia-code-nerd \
+	xorg-xrandr neovim stow \
 	kitty zsh starship zoxide \
 	exa tmux feh picom rustup \
 	libcanberra
