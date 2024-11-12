@@ -1,0 +1,82 @@
+{
+  "modules-left": [
+    "custom/system",
+    "hyprland/workspaces",
+  ],
+
+  "modules-center": [
+    "hyprland/window"
+  ],
+
+  "modules-right": [
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "group/minimized"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "10": "󰖺"
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{title}"
+  },
+
+  "memory": {
+    "format": "<span color=\"#fabd2f\">   </span>{used:0.1f}GiB ",
+    "interval": 1
+  },
+
+  "cpu": {
+    "format": "<span color=\"#fabd2f\">   </span>{usage}%",
+    "interval": 1
+  },
+
+  "pulseaudio": {
+    "format": "<span color=\"#fabd2f\">   </span>{volume}%"
+  },
+
+  "clock#time": {
+    "interval": 1,
+    "format": "<span color=\"#fabd2f\">  </span>{:%H:%M:%S}"
+  },
+
+  "clock#date": {
+    "interval": 60,
+    "format": "<span color=\"#fabd2f\">  </span>{:%d/%m/%Y}"
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 2
+  },
+
+  "group/minimized": {
+    "orientation": "horizontal",
+    "modules": ["custom/expand", "tray"],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "minimized",
+      "transition-duration": 500
+    }
+  },
+
+  "custom/expand": {
+    "tooltip": false,
+    "format": ""
+  },
+
+  "custom/system": {
+    "format": "  󰣇 "
+  },
+
+  "output": "HDMI-A-1",
+  "position": "bottom",
+  "name": "mainBar",
+  "layer": "top",
+  "height": 34
+}

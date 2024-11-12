@@ -1,0 +1,84 @@
+@define-color base00 #282828; /* ---- */
+@define-color base01 #3c3836; /* --- */
+@define-color base02 #504945; /* -- */
+@define-color base03 #665c54; /* - */
+@define-color base04 #bdae93; /* + */
+@define-color base05 #d5c4a1; /* ++ */
+@define-color base06 #ebdbb2; /* +++ */
+@define-color base07 #fbf1c7; /* ++++ */
+
+@define-color base08 #fb4934; /* red */
+@define-color base09 #fe8019; /* orange */
+@define-color base0A #fabd2f; /* yellow */
+@define-color base0B #b8bb26; /* green */
+@define-color base0C #8ec07c; /* aqua/cyan */
+@define-color base0D #83a598; /* blue */
+@define-color base0E #d3869b; /* purple */
+@define-color base0F #d65d0e; /* brown */
+
+window.mainBar#waybar * {
+	font-family: "CaskaydiaCove Nerd Font";
+	font-weight : bold;
+	font-style: italic;
+	font-size: 13px;
+
+	padding: 0px;
+	margin: 0px;
+
+	background: @base00;
+}
+
+tooltip {
+	font-family: "CaskaydiaCove Nerd Font";
+	font-weight : bold;
+	font-style: italic;
+
+	border: 1px solid @base05;
+	background: @base00;
+}
+
+#cpu, #memory, #pulseaudio, #clock, #window, #tray {
+	color: @base05;
+	margin: 0px 4px;
+}
+
+#window {
+	color: @base04;
+}
+
+#workspaces button {
+	padding: 0px;
+	margin: 0px;
+}
+
+#workspaces button.active {
+	color: @base0A;
+}
+
+#workspaces button.urgent {
+	color: @base08;
+}
+
+#tray {
+	margin: 0;
+	padding: 4px;
+}
+
+#tray * {
+	margin-left: 8px;
+}
+
+#group-minimized {
+	border-left: solid;
+	border-left-width: 0.5px;
+}
+
+#custom-expand {
+	min-width: 25px;
+	padding: 4px;
+}
+
+#custom-system {
+	font-size: 32px;
+	color: @base0A;
+}
