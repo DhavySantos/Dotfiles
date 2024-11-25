@@ -1,5 +1,6 @@
 {
   "modules-left": [
+    "clock#time",
     "custom/system",
     "hyprland/workspaces",
   ],
@@ -42,7 +43,7 @@
 
   "clock#time": {
     "interval": 1,
-    "format": "<span color=\"#fabd2f\">  </span>{:%H:%M:%S}"
+    "format": " <span color=\"#fabd2f\">  </span>{:%H:%M:%S}"
   },
 
   "clock#date": {
@@ -71,7 +72,7 @@
   },
 
   "custom/system": {
-    "format": "  󰣇 "
+    "format": " 󰣇 "
   },
 
   "output": "HDMI-A-1",
