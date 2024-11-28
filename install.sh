@@ -1,36 +1,66 @@
-# DOTFILES PACKAGES
-sudo pacman -Sy --noconfirm \
-	xclip maim rofi-wayland kitty \
-	ttf-cascadia-code-nerd \
-	xorg-xrandr neovim stow \
-	kitty zsh starship zoxide \
-	exa tmux feh picom rustup \
-	libcanberra yazi hyprpaper
+#!/bin/bash
+managers=("i3wm" "hyprland")
 
-# AMDGPU PACKAGES
-sudo pacman -Sy --noconfirm \
-	vulkan-radeon lib32-vulkan-radeon \
-	mesa lib32-mesa xf86-video-amdgpu
+echo "Select your window manager:"
 
-# INSTALL YAY
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-(cd /tmp/yay && makepkg -si --noconfirm)
+for index in "${!managers[@]}"; do
+  echo "$((index + 1))) - ${managers[index]}"
+done
 
-# YAY PACKAGES
-yay -S --noconfirm \
-  apple_cursor gruvbox-material-gtk-theme
-  xremap-wlroots-bin hyprshoot
+read -p "Enter your choice: " choice
 
-mkdir -p $HOME/.config/{hypr,i3,rofi,tmux/plugins,waybar,kitty} $HOME/Pictures $HOME/.scripts
-curl -o $HOME/Pictures/wallpaper.jpg https://i.imgur.com/4lqHk7C.jpeg
+if ! [[ "$choice" =~ ^[0-9]+$ ]] || ((choice < 1 || choice > ${#managers[@]})); then
+  echo "Invalid choice. Exiting."
+  exit 1
+fi
 
-# CREATE .DOTFILES LINKS
-stow --ignore=".(sh)$" .
+choice=${managers[choice - 1]}
+packages="
+  kitty ttf-cascadia-code-nerd stow 
+  zsh starship zoxide fzf exa tmux
+  rustup yazi neovim google-chrome
+  curl git lazygit
+"
 
-# CLONE PLUGINS
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/plugins/syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/plugins/autosuggestions
+if [ $choice == "i3wm" ]; then
+  packages+=" xclip i3-wm polybar rofi lightdm feh lightdm-gtk-greeter xremap-x11-bin"
+fi
 
-# SETUP RUST
-rustup default stable
-rustup component add rust-analyzer
+if [ $choice == "hyprland" ]; then
+  packages+=" wl-clipboard hyprland hyprpaper hyprshot waybar rofi-wayland sddm xremap-wlroots-bin"
+fi
+
+yay -Sy --noconfirm $packages
+echo "Packages installed."
+
+# Install the Gruvbox theme if not already installed
+if ! [ -d "$HOME/.themes/Gruvbox-Dark" ]; then 
+  mkdir -p "$HOME/.themes"
+  git clone https://github.com/vinceliuice/Colloid-gtk-theme /tmp/gruvbox-dark
+  (cd /tmp/gruvbox-dark && ./install.sh -t default -c dark -s standard -n Gruvbox)
+  rm -rf /tmp/gruvbox-dark
+  echo "Gruvbox theme installed."
+fi
+
+# Install macOS-White cursor if not already installed
+if ! [ -d "$HOME/.icons/macOS-White" ]; then 
+  mkdir -p "$HOME/.icons"
+  curl --output /tmp/macOS-White.tar.xz https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS-White.tar.xz
+  tar -xvf /tmp/macOS-White.tar.xz -C "$HOME/.icons"
+  rm -f /tmp/macOS-White.tar.xz
+  echo "macOS-White cursor installed."
+fi
+
+# Install yay if not already installed
+if ! command -v yay &>/dev/null; then
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  (cd /tmp/yay && makepkg --si --noconfirm)
+  rm -rf /tmp/yay
+  echo "yay installed."
+fi
+
+stow -d ./"$choice" -t "$HOME" .
+stow -d ./common -t "$HOME" .
+
+echo "Script completed."
+
