@@ -19,11 +19,11 @@ packages="
   kitty ttf-cascadia-code-nerd stow 
   zsh starship zoxide fzf exa tmux
   rustup yazi neovim google-chrome
-  curl git lazygit
+  curl git lazygit chroma python-pygments
 "
 
 if [ $choice == "i3wm" ]; then
-  packages+=" xclip i3-wm polybar rofi lightdm feh lightdm-gtk-greeter xremap-x11-bin"
+  packages+=" xclip i3-wm polybar rofi lightdm feh picom lightdm-gtk-greeter xremap-x11-bin"
 fi
 
 if [ $choice == "hyprland" ]; then
@@ -49,6 +49,18 @@ if ! [ -d "$HOME/.icons/macOS-White" ]; then
   tar -xvf /tmp/macOS-White.tar.xz -C "$HOME/.icons"
   rm -f /tmp/macOS-White.tar.xz
   echo "macOS-White cursor installed."
+fi
+
+if ! [ -d $HOME/.ohmyzsh ]; then
+  git cloen https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.ohmyzsh/custom/plugins/syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.ohmyzsh/custom/plugins/autosuggestions
+  git clone https://github.com/zsh-users/zsh-completions $HOME/.ohmyzsh/custom/plugins/zsh-completions
+fi
+
+if ! [ -d $HOME/Pictures ]; then
+  mkdir -p $HOME/Pictures
+  curl -o $HOME/Pictures/wallpaper.jpg https://i.imgur.com/4lqHk7C.jpeg
 fi
 
 # Install yay if not already installed
