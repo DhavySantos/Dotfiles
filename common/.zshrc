@@ -1,21 +1,35 @@
 export HISTFILE="$HOME/.cache/zsh-history"
-export HISTSIZE=10000
-export SAVEHIST=10000
+export ZSH="$HOME/.ohmyzsh"
+
+plugins=(
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
+  colorize
+)
+
+ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
+ZSH_COLORIZE_STYLE="colorful"
+ZSH_COLORIZE_TOOL=chroma
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+source $ZSH/oh-my-zsh.sh
+
+zstyle ':completion:*' list-colors 'no=00;32'
+zstyle ':completion:*' use-comp-desc yes
+zstyle ':completion:*' rehash true
+
+autoload -Uz compdef && compdef _git git
+autoload -Uz compinit && compinit
 
 alias nft="sudo nft"
 alias ip="ip -c"
-alias vim="nvim"
-alias vi="nvim"
 alias ls="exa"
-
-setopt appendhistory
-setopt auto_cd
 
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(starship init zsh)"
-
-source ~/.zsh/plugins/syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/plugins/autosuggestions/zsh-autosuggestions.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
