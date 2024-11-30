@@ -1,8 +1,8 @@
 export PATH="$PATH:$HOME/.cargo/bin"
 
 export XCURSOR_THEME="$XCURSOR_THEME:/usr/share/icons"
-export GTK_THEME="Gruvbox-Material-Dark"
 export XCURSOR_THEME="macOS-White"
+export GTK_THEME="Gruvbox-Dark"
 
 export EDITOR="nvim"
 
