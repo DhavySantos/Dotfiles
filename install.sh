@@ -19,15 +19,23 @@ packages="
   kitty ttf-cascadia-code-nerd stow 
   zsh starship zoxide fzf exa tmux
   rustup yazi neovim google-chrome
-  curl git lazygit chroma python-pygments
+  curl git lazygit spotify
 "
 
 if [ $choice == "i3wm" ]; then
-  packages+=" xclip i3-wm polybar rofi lightdm feh picom lightdm-gtk-greeter xremap-x11-bin"
+  packages+="
+    xclip i3-wm polybar rofi
+    lightdm feh picom lightdm-gtk-greeter
+    xremap-x11-bin xdg-desktop-portal-gtk
+  "
 fi
 
 if [ $choice == "hyprland" ]; then
-  packages+=" wl-clipboard hyprland hyprpaper hyprshot waybar rofi-wayland sddm xremap-wlroots-bin"
+  packages+="
+    wl-clipboard hyprland hyprpaper 
+    hyprshot waybar rofi-wayland sddm 
+    xremap-wlroots-bin xdg-desktop-portal-hyprland
+  "
 fi
 
 yay -Sy --noconfirm $packages
