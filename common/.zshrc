@@ -5,7 +5,6 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  colorize
 )
 
 ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
