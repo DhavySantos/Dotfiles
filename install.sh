@@ -59,6 +59,10 @@ if ! [ -d "$HOME/.icons/macOS-White" ]; then
   echo "macOS-White cursor installed."
 fi
 
+if ! [ -d "$HOME/.config/nvim" ]; then
+  git clone https://github.com/dhavysantos/neovim $HOME/.config/nvim
+fi
+
 if ! [ -d $HOME/.ohmyzsh ]; then
   git cloen https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.ohmyzsh/custom/plugins/syntax-highlighting
