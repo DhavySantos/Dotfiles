@@ -38,9 +38,6 @@ if [ $choice == "hyprland" ]; then
   "
 fi
 
-yay -Sy --noconfirm $packages
-echo "Packages installed."
-
 # Install the Gruvbox theme if not already installed
 if ! [ -d "$HOME/.themes/Gruvbox-Dark" ]; then 
   mkdir -p "$HOME/.themes"
@@ -64,9 +61,9 @@ if ! [ -d "$HOME/.config/nvim" ]; then
 fi
 
 if ! [ -d $HOME/.ohmyzsh ]; then
-  git cloen https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.ohmyzsh/custom/plugins/syntax-highlighting
-  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.ohmyzsh/custom/plugins/autosuggestions
+  git clone https://github.com/ohmyzsh/ohmyzsh $HOME/.ohmyzsh
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.ohmyzsh/custom/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.ohmyzsh/custom/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-completions $HOME/.ohmyzsh/custom/plugins/zsh-completions
 fi
 
@@ -78,10 +75,13 @@ fi
 # Install yay if not already installed
 if ! command -v yay &>/dev/null; then
   git clone https://aur.archlinux.org/yay.git /tmp/yay
-  (cd /tmp/yay && makepkg --si --noconfirm)
+  (cd /tmp/yay && makepkg -si --noconfirm)
   rm -rf /tmp/yay
   echo "yay installed."
 fi
+
+yay -Sy --noconfirm $packages
+echo "Packages installed."
 
 stow -d ./"$choice" -t "$HOME" .
 stow -d ./common -t "$HOME" .
