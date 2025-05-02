@@ -1,3 +1,4 @@
+--ignore install.sh
 --ignore .stowrc
 --ignore .git
 --no-folding
