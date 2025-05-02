@@ -1,0 +1,54 @@
+* {
+	font-family: "CaskaydiaCove Nerd Font";
+	font-weight: bold;
+	font-size: 12px;
+	padding: 0px;
+	margin: 0px;
+}
+
+window#waybar {
+	background: rgba(0, 0, 0, 0);
+	color: white;
+}
+
+.modules-left, .modules-center, .modules-right {
+	background: #222222;
+	border-radius: 6px;
+	margin: 4px;
+}
+
+#custom-system, #clock, #tray {
+	padding: 0 4px 0 4px;
+}
+
+#custom-system {
+	border-radius: 6px 0 0px 6px;
+	background: #323232;
+	padding-left: 8px;
+	color: #83adad;
+}
+
+#workspaces button {
+	margin: 0 4px 0 4px;
+	color: white;
+}
+
+#workspaces button:hover {
+	text-shadow: none;
+	box-shadow: none;
+	background: none;
+	transition: none;
+	border: none;
+}
+
+#workspaces button.empty {
+	color: white;
+}
+
+#workspaces button.visible {
+	color: #82AE5B;
+}
+
+#workspaces button.urgent {
+	color: #d75f5f;
+}
