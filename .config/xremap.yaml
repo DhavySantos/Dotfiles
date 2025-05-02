@@ -1,0 +1,12 @@
+modmap:
+  - name: "Caps to Escape"
+    remap:
+      CapsLock: Esc
+
+keymap:
+  - name: "Alt+WASD to Arrows"
+    remap:
+      Alt-w: Up
+      Alt-a: Left
+      Alt-s: Down
+      Alt-d: Right
