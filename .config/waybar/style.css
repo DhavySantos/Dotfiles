@@ -12,7 +12,7 @@ window#waybar {
 }
 
 .modules-left, .modules-center, .modules-right {
-	background: #222222;
+	background: #181818;
 	border-radius: 6px;
 	margin: 4px;
 }
@@ -23,7 +23,7 @@ window#waybar {
 
 #custom-system {
 	border-radius: 6px 0 0px 6px;
-	background: #323232;
+	background: #202020;
 	padding-left: 8px;
 	color: #83adad;
 }
@@ -46,7 +46,7 @@ window#waybar {
 }
 
 #workspaces button.visible {
-	color: #82AE5B;
+	color: #83adad;
 }
 
 #workspaces button.urgent {
