@@ -7,9 +7,4 @@ sudo pacman -Syu --noconfirm \
 	wl-clipboard hyprshot hyprpaper rofi-wayland \
 	waybar btop yazi adw-gtk-theme
 
-if ! command -v yay &> /dev/null; then
-	git clone https://aur.archlinux.org/yay /tmp/yay
-	(cd /tmp/yay && makepkg -si --noconfirm)
-fi
-
 stow -d $SCRIPT_DIR -t $HOME .
