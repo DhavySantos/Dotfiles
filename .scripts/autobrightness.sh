@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e  # Exit on error
+
 set_brightness() {
     local brightness=$1
     for display in $(ddcutil detect | grep -oP 'Display \K\d+'); do
@@ -23,41 +25,38 @@ now_minutes=$((10#$current_hour * 60 + 10#$current_minute))
 
 # Define key time boundaries in minutes
 START_TIME=960    # 16:00 (4 PM)
-END_TIME=1080     # 19:00 (7 PM)
+END_TIME=1080     # 18:00 (6 PM)
 MORNING_TIME=360  # 06:00 (6 AM)
 
 # Define color temperatures (Kelvin)
 TEMP_DAY=6500     # Daytime temperature
-TEMP_NIGHT=3800   # Evening/warm temperature
+TEMP_NIGHT=3500   # Nighttime temperature
 
-if (( now_minutes == MORNING_TIME )); then
-    # At 6 AM: reset to daytime settings
-    set_temperature "$TEMP_DAY"
-    set_brightness 100
-    exit 0
-fi
+echo "Current time in minutes: $now_minutes"
 
-if (( now_minutes <= START_TIME )); then
-    # Before 4 PM: full brightness and daytime temperature
+if (( now_minutes >= MORNING_TIME && now_minutes < START_TIME )); then
+    # Between 6 AM and 4 PM
     brightness=100
-    set_temperature "$TEMP_DAY"
+    temperature=$TEMP_DAY
 elif (( now_minutes >= END_TIME )); then
-    # After 7 PM: brightness off and daytime temperature (adjust if needed)
+    # After 6 PM
     brightness=0
-    set_temperature "$TEMP_NIGHT"
-else
-    # Between 4 PM and 7 PM: gradually decrease brightness and temperature
+    temperature=$TEMP_NIGHT
+elif (( now_minutes >= START_TIME && now_minutes < END_TIME )); then
+    # Between 4 PM and 6 PM
     total_interval=$((END_TIME - START_TIME))  # 120 minutes
     elapsed=$((now_minutes - START_TIME))
 
-    # Linear interpolation for brightness (100 -> 0)
+    # Linear interpolation
     brightness=$((100 - (elapsed * 100 / total_interval)))
-
-    # Linear interpolation for temperature (6500K -> 4500K)
     temp_diff=$((TEMP_DAY - TEMP_NIGHT))
     temperature=$((TEMP_DAY - (elapsed * temp_diff / total_interval)))
-
-    set_temperature "$temperature"
+else
+    # Before 6 AM
+    brightness=0
+    temperature=$TEMP_NIGHT
 fi
 
+set_temperature "$temperature"
 set_brightness "$brightness"
+
