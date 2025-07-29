@@ -1,28 +1,35 @@
-alias ip="ip -c"
-alias ls="exa"
+export ZSH="$HOME/.oh-my-zsh"
+
+if [[ ! -d "$ZSH" ]]; then
+  git clone https://github.com/ohmyzsh/ohmyzsh  $ZSH
+fi
+
+if [[ ! -d "$ZSH/plugins/zsh-autosuggestions" ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH/plugins/zsh-autosuggestions"
+fi
+
+if [[ ! -d "$ZSH/plugins/zsh-syntax-highlighting" ]]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH/plugins/zsh-syntax-highlighting"
+fi
+
+if [[ ! -d "$ZSH/plugins/zsh-autocomplete" ]]; then
+  git clone https://github.com/marlonrichert/zsh-autocomplete.git "$ZSH/plugins/zsh-autocomplete"
+fi
+
+plugins=(tmux zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
+
+source $ZSH/oh-my-zsh.sh
 
 HISTFILE=~/.cache/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt INC_APPEND_HISTORY
-setopt EXTENDED_HISTORY
-setopt SHARE_HISTORY
-
-## ZINIT  #########################################################################################
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
-
-zinit light zsh-users/zsh-autosuggestions
-zinit light marlonrichert/zsh-autocomplete
-zinit light zsh-users/zsh-syntax-highlighting
-###################################################################################################
-
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/spicetify
+export TERM="xterm-256color"
 export EDITOR="nvim"
+
+alias ls="exa -la"
+alias ip="ip -c"
 
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
