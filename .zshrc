@@ -1,3 +1,4 @@
+export ZSH_COMPDUMP="$HOME/.cache/.zcompdump-$HOST"
 export ZSH="$HOME/.oh-my-zsh"
 
 if [[ ! -d "$ZSH" ]]; then
@@ -16,7 +17,18 @@ if [[ ! -d "$ZSH/plugins/zsh-autocomplete" ]]; then
   git clone https://github.com/marlonrichert/zsh-autocomplete.git "$ZSH/plugins/zsh-autocomplete"
 fi
 
-plugins=(tmux zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)
+ZSH_TMUX_UNICODE="true"
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOCONNECT="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
+ZSH_TMUX_DEFAULT_SESSION_NAME="Default"
+
+plugins=(
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	zsh-autocomplete
+	tmux
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,7 +36,7 @@ HISTFILE=~/.cache/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export EDITOR="nvim"
 
 alias ls="exa -la"
