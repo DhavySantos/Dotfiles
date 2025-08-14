@@ -1,0 +1,14 @@
+[Unit]
+Description=Discord Audio Null Sink and Loopback
+After=pipewire.service
+Requires=pipewire.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pactl load-module module-null-sink sink_name=discord_sink sink_properties=device.description=Steam
+ExecStartPost=/usr/bin/pactl load-module module-loopback source=discord_sink.monitor latency_msec=10 rate=48000 sink_input_properties=device.description=DiscordLoopback
+ExecStop=/usr/bin/bash -c 'for ID in $(pactl list short modules | grep -E "discord_sink|SteamLoopback" | cut -f1); do pactl unload-module "$ID"; done'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
