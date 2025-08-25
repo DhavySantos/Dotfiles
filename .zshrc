@@ -36,10 +36,9 @@ HISTFILE=~/.cache/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# export TERM="xterm-256color"
 export EDITOR="nvim"
 
-alias ls="exa -la"
+alias ls="exa -la --group-directories-first"
 alias ip="ip -c"
 
 eval "$(zoxide init zsh --cmd cd)"
