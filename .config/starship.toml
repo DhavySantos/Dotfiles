@@ -1,5 +1,5 @@
 format = "$os \b$username \b$directory \b$git_branch \b$package \b$rust $cmd_duration\n $character"
-add_newline = true
+add_newline = false
 
 [package]
 format = " is [📦 $version]($style)"
