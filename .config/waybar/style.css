@@ -1,0 +1,57 @@
+window#waybar {
+	font-family: "CaskaydiaCove Nerd Font";
+	font-weight: bold;
+	font-size: 12px;
+
+	padding: 0px;
+	margin: 0px;
+
+	background: #282828;
+	color: white;
+}
+
+#clock, #tray, #wireplumber, #custom-night, #custom-distro, #custom-notification {
+	background: #343434;
+	padding: 0px 6px;
+	margin: 0px;
+}
+
+#custom-distro {
+	color: #83A598;
+	padding-left: 10px;
+}
+
+#workspaces button {
+	color: #FABD2F;
+	margin: 0px 2px;
+	padding: 2px;
+}
+
+#workspaces button:hover {
+	background: none;
+}
+
+#workspaces button.empty {
+	color: white;
+}
+
+#workspaces button.active {
+	color: #83A598;
+}
+
+#workspaces button.urgent {
+	color: #CC241D;
+}
+
+#clock, #custom-night, #custom-notification {
+	padding: 2px;
+	background: #525252;
+}
+
+#clock {
+	padding: 4px;
+}
+
+#tray {
+	background: #424242;
+}
