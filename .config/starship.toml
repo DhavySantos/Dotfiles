@@ -1,0 +1,30 @@
+format = "$os $username $directory $git_branch $package $rust $cmd_duration\n $character"
+add_newline = false
+
+[package]
+format = "is [📦 $version]($style)"
+
+[rust]
+format = "via [🦀 $version]($style)"
+
+[git_branch]
+format = "on [ $branch]($style)"
+
+[username]
+format = "[$user](bold yellow)"
+show_always = true
+
+[character]
+success_symbol = "[󱞩](bold green)"
+error_symbol = "[󱞩](bold red)"
+
+[directory]
+format = "[$path]($style)"
+
+[os]
+disabled = false
+format = "$symbol"
+
+symbols.Ubuntu = "[](bold gray)"
+symbols.Arch = "[󰣇](bold gray)"
+symbols.NixOS = "[](bold)"
