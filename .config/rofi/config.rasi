@@ -1,0 +1,90 @@
+configuration {
+  font: "CaskaydiaCove Nerd Font 14";
+  combi-modes: [ window, drun, run];
+  modes: [ drun ];
+  dpi: 75;
+
+  display-drun: "  ";
+  show-icons: true;
+}
+
+window {
+  background-color: transparent;
+  border-radius: 4px;
+  margin: 64px 0px;
+  location: north;
+  anchor: north;
+  border: none;
+  width: 33%;
+}
+
+inputbar {
+  background-color: #222222;
+  border-radius: 4px;
+  padding: 12px;
+  border: none;
+}
+
+entry {
+  placeholder: "Search...";
+  text-color: #f8f8f2;
+}
+
+textbox-prompt-colon {
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    expand:     false;
+    text-color: #f8f8f2;
+    str:        ":";
+}
+
+prompt {
+  text-color: #f8f8f2;
+}
+
+listview {
+  background-color: #222222;
+  margin: -2px 12px 0px;
+  fixed-height: false;
+  padding: 12px;
+  border: none;
+  lines: 8;
+}
+
+scrollbar {
+    handle-color: transparent;
+}
+
+mainbox {
+}
+
+element-text {
+  padding: 8px;
+}
+
+element-icon {
+  padding: 8px;
+}
+
+element {
+  background-color: black;
+  spacing: 0px;
+}
+
+element normal.normal {
+  background-color: transparent;
+  text-color: #f8f8f2;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+element alternate.normal {
+  background-color: transparent;
+  text-color: #f8f8f2;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+element selected.normal {
+  background-color: #282828;
+  border-radius: 4px;
+}
