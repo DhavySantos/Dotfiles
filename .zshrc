@@ -18,10 +18,6 @@ if [[ ! -d "$ZSH/plugins/zsh-autocomplete" ]]; then
 fi
 
 ZSH_TMUX_UNICODE="true"
-ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOCONNECT="true"
-ZSH_TMUX_AUTOSTART_ONCE="true"
-ZSH_TMUX_DEFAULT_SESSION_NAME="Default"
 
 plugins=(
 	zsh-autosuggestions
