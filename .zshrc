@@ -39,6 +39,7 @@ SAVEHIST=10000
 export EDITOR="nvim"
 
 alias ls="exa -la --group-directories-first"
+alias cp="rsync -a --progress"
 alias ip="ip -c"
 
 eval "$(zoxide init zsh --cmd cd)"
