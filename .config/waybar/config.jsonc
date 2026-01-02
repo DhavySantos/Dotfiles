@@ -5,11 +5,11 @@
 
 	"modules-left": [ "custom/distro", "clock" ],
 	"modules-center": [ "hyprland/workspaces" ],
-	"modules-right": [ "wireplumber", "tray" ],
+	"modules-right": [ "battery", "wireplumber", "tray" ],
 
 	"clock": {
 		"format": "󰥔  {:%I:%M %p}",
-		"interval": 60,
+		"interval": 60
 	},
 
 	"tray": {
@@ -25,7 +25,13 @@
 		"scroll-step": 0.2
 	},
 
-	"custom/distro": {
-		"format": ""
+	"battery": {
+		"bat": "BAT0",
+		"interval": 15,
+		"format": "󰁹 {capacity}%"
 	},
+
+	"custom/distro": {
+		"format": "󰣛"
+	}
 }

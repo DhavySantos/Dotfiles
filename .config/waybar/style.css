@@ -1,45 +1,50 @@
 window#waybar {
 	font-family: "CaskaydiaCove Nerd Font";
+	font-weight: bold;
 	font-size: 12px;
 
 	background: transparent;
+	color: white;
 }
 
 .modules-left, .modules-center, .modules-right {
 	padding: 0px 8px 8px 8px;
 }
 
-#custom-distro, #workspaces, #clock, #tray, #wireplumber {
+#custom-distro, #workspaces, #clock, #tray, #wireplumber, #battery {
 	background: rgb(28, 28, 30);
 	padding: 0px 12px 0px 12px;
-	border-radius: 32px;
 	margin: 0px 4px 0px 2px;
+	border-radius: 16px;
 }
 
 #custom-distro {
-	padding-right: 14px;
+	padding-right: 15px;
 	font-size: 16px;
 }
 
 #workspaces {
-	padding: 0px 2px 0px 2px;
+	padding: 0px;
 }
 
 
 #workspaces button {
-	border-radius: 32px;
+	border-radius: 16px;
 
-	padding: 0;
-	padding-left: 4px;
-	padding-right: 4px;
+	padding: 0 12px 0 12px;
 	margin: 4px;
 
 	background: rgb(36, 36, 38);
-    border: none;
+	color: white;
+
+	transition: none;
+	text-shadow: none;
+	box-shadow: none;
+	border: none;
 }
 
 #workspaces button.visible {
-	padding: 0px 16px 0px 16px;
+	padding: 0px 18px 0px 18px;
 	background: rgb(255, 141, 40);
 	color: rgb(36, 36, 38);
 }
