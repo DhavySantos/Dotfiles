@@ -34,8 +34,9 @@
 
 	"network": {
 		"format": "{ifname}",
+		"format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
 		"on-click": "kitty --class panel -- nmtui",
-		"format-wifi": "󰖩  {essid} ({signalStrength}%)",
+		"format-wifi": "{icon}  {essid}",
 		"format-ethernet": "",
 		"format-disconnected": "󰌙",
 		"tooltip-format": "{ifname} via {gwaddr}",
