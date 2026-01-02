@@ -28,7 +28,8 @@
 	"battery": {
 		"bat": "BAT0",
 		"interval": 15,
-		"format": "󰁹 {capacity}%"
+		"format": "󰁹 {capacity}%",
+		"format-charging": " {capacity}%"
 	},
 
 	"network": {
