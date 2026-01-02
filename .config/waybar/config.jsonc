@@ -5,7 +5,7 @@
 
 	"modules-left": [ "custom/distro", "clock", "custom/player" ],
 	"modules-center": [ "hyprland/workspaces" ],
-	"modules-right": [ "network", "battery", "wireplumber", "tray" ],
+	"modules-right": [ "network", "battery", "wireplumber", "tray", "custom/night" ],
 
 	"clock": {
 		"format": "󰥔  {:%I:%M %p}",
@@ -56,6 +56,11 @@
 		"on-scroll-up": "~/.local/lib/waybar/playerctl.sh volume-up",
 		"on-scroll-down": "~/.local/lib/waybar/playerctl.sh volume-down",
 		"escape": true
+	},
+
+	"custom/night": {
+		"format": "",
+		"on-click": "~/.local/lib/waybar/night.sh"
 	},
 
 	"custom/distro": {
