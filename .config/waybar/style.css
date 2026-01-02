@@ -1,57 +1,45 @@
 window#waybar {
 	font-family: "CaskaydiaCove Nerd Font";
-	font-weight: bold;
 	font-size: 12px;
 
-	padding: 0px;
-	margin: 0px;
-
-	background: #282828;
-	color: white;
+	background: transparent;
 }
 
-#clock, #tray, #wireplumber, #custom-night, #custom-distro, #custom-notification {
-	background: #343434;
-	padding: 0px 6px;
-	margin: 0px;
+.modules-left, .modules-center, .modules-right {
+	padding: 0px 8px 8px 8px;
+}
+
+#custom-distro, #workspaces, #clock, #tray, #wireplumber {
+	background: rgb(28, 28, 30);
+	padding: 0px 12px 0px 12px;
+	border-radius: 32px;
+	margin: 0px 4px 0px 2px;
 }
 
 #custom-distro {
-	color: #83A598;
-	padding-left: 10px;
+	padding-right: 14px;
+	font-size: 16px;
 }
+
+#workspaces {
+	padding: 0px 2px 0px 2px;
+}
+
 
 #workspaces button {
-	color: #FABD2F;
-	margin: 0px 2px;
-	padding: 2px;
+	border-radius: 32px;
+
+	padding: 0;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 4px;
+
+	background: rgb(36, 36, 38);
+    border: none;
 }
 
-#workspaces button:hover {
-	background: none;
-}
-
-#workspaces button.empty {
-	color: white;
-}
-
-#workspaces button.active {
-	color: #83A598;
-}
-
-#workspaces button.urgent {
-	color: #CC241D;
-}
-
-#clock, #custom-night, #custom-notification {
-	padding: 2px;
-	background: #525252;
-}
-
-#clock {
-	padding: 4px;
-}
-
-#tray {
-	background: #424242;
+#workspaces button.visible {
+	padding: 0px 16px 0px 16px;
+	background: rgb(255, 141, 40);
+	color: rgb(36, 36, 38);
 }

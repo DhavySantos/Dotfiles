@@ -1,36 +1,31 @@
 {
+
 	"layer": "bottom",
 	"position": "bottom",
 
-	"modules-left": [ "custom/distro", "hyprland/workspaces" ],
-	"modules-center": [ "hyprland/window" ],
-	"modules-right": [ "wireplumber", "tray", "clock" ],
+	"modules-left": [ "custom/distro", "clock" ],
+	"modules-center": [ "hyprland/workspaces" ],
+	"modules-right": [ "wireplumber", "tray" ],
 
-	"spacing": 0,
-
-	"hyprland/workspaces": {
-		"format": "{icon}",
-		"format-icons": {
-			"default": "",
-			"active": ""
-		},
-
-		"active-only": false,
-		"all-outputs": false
-	},
-
-	"custom/distro": {
-		"format": " "
-	},
-
-	"wireplumber": {
-		"format": "󰕾 {volume}%",
-		"format-muted": "muted",
-		"on-click": "pwvucontrol"
+	"clock": {
+		"format": "󰥔  {:%I:%M %p}",
+		"interval": 60,
 	},
 
 	"tray": {
 		"icon-size": 16,
-		"spacing": 4
-	}
+		"spacing": 6
+	},
+
+	"wireplumber": {
+		"format": "  {volume}%",
+		"format-muted": "",
+		"on-click": "kitty --class panel -- wiremix",
+		"max-volume": 150,
+		"scroll-step": 0.2
+	},
+
+	"custom/distro": {
+		"format": ""
+	},
 }
