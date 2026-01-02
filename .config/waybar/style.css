@@ -18,6 +18,11 @@ window#waybar {
 	border-radius: 16px;
 }
 
+#network.ethernet, #network.disconnected {
+	padding-right: 17px;
+	font-size: 16px;
+}
+
 #custom-distro {
 	padding-right: 15px;
 	font-size: 16px;

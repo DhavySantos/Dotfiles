@@ -33,14 +33,13 @@
 	},
 
 	"network": {
-		"interface": "wlp1s0",
 		"format": "{ifname}",
-		"format-wifi": "󰖩 {essid} ({signalStrength}%)",
-		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
-		"format-disconnected": "",
-		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-		"tooltip-format-ethernet": "{ifname} ",
+		"format-wifi": "󰖩  {essid} ({signalStrength}%)",
+		"format-ethernet": "",
+		"format-disconnected": "󰌙",
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+		"tooltip-format-ethernet": "{ipaddr}/{cidr}",
 		"tooltip-format-disconnected": "Disconnect",
 		"max-length": 50
 	},
