@@ -11,7 +11,7 @@ window#waybar {
 	padding: 0px 8px 8px 8px;
 }
 
-#custom-distro, #workspaces, #clock, #tray, #wireplumber, #battery {
+#custom-distro, #workspaces, #clock, #tray, #wireplumber, #battery, #network {
 	background: rgb(28, 28, 30);
 	padding: 0px 12px 0px 12px;
 	margin: 0px 4px 0px 2px;

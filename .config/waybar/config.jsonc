@@ -5,7 +5,7 @@
 
 	"modules-left": [ "custom/distro", "clock" ],
 	"modules-center": [ "hyprland/workspaces" ],
-	"modules-right": [ "battery", "wireplumber", "tray" ],
+	"modules-right": [ "network", "battery", "wireplumber", "tray" ],
 
 	"clock": {
 		"format": "󰥔  {:%I:%M %p}",
@@ -29,6 +29,19 @@
 		"bat": "BAT0",
 		"interval": 15,
 		"format": "󰁹 {capacity}%"
+	},
+
+	"network": {
+		"interface": "wlp1s0",
+		"format": "{ifname}",
+		"format-wifi": "󰖩 {essid} ({signalStrength}%)",
+		"format-ethernet": "{ipaddr}/{cidr} 󰊗",
+		"format-disconnected": "",
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnect",
+		"max-length": 50
 	},
 
 	"custom/distro": {
