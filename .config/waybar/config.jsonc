@@ -34,6 +34,7 @@
 
 	"network": {
 		"format": "{ifname}",
+		"on-click": "kitty --class panel -- nmtui",
 		"format-wifi": "󰖩  {essid} ({signalStrength}%)",
 		"format-ethernet": "",
 		"format-disconnected": "󰌙",
