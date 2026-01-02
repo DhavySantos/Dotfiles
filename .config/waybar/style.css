@@ -11,7 +11,7 @@ window#waybar {
 	padding: 0px 8px 8px 8px;
 }
 
-#custom-distro, #workspaces, #clock, #tray, #wireplumber, #battery, #network {
+#custom-distro, #custom-player, #workspaces, #clock, #tray, #wireplumber, #battery, #network {
 	background: rgb(28, 28, 30);
 	padding: 0px 12px 0px 12px;
 	margin: 0px 4px 0px 2px;
@@ -29,14 +29,13 @@ window#waybar {
 }
 
 #workspaces {
-	padding: 0px;
+	padding: 0px 1px 0px 1px;
 }
-
 
 #workspaces button {
 	border-radius: 16px;
 
-	padding: 0 12px 0 12px;
+	padding: 0 24px 0 24px;
 	margin: 4px;
 
 	background: rgb(36, 36, 38);
@@ -48,8 +47,12 @@ window#waybar {
 	border: none;
 }
 
+#workspaces button.urgent {
+	background: rgb(233, 21, 45);
+}
+
 #workspaces button.visible {
-	padding: 0px 18px 0px 18px;
+	padding: 0px 48px 0px 48px;
 	background: rgb(255, 141, 40);
 	color: rgb(36, 36, 38);
 }

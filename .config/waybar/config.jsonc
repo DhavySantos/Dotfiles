@@ -3,7 +3,7 @@
 	"layer": "bottom",
 	"position": "bottom",
 
-	"modules-left": [ "custom/distro", "clock" ],
+	"modules-left": [ "custom/distro", "clock", "custom/player" ],
 	"modules-center": [ "hyprland/workspaces" ],
 	"modules-right": [ "network", "battery", "wireplumber", "tray" ],
 
@@ -36,7 +36,7 @@
 		"format": "{ifname}",
 		"on-click": "kitty --class panel -- nmtui",
 		"format-wifi": "󰖩  {essid} ({signalStrength}%)",
-		"format-ethernet": "",
+		"format-ethernet": "",
 		"format-disconnected": "󰌙",
 		"tooltip-format": "{ifname} via {gwaddr}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
@@ -45,7 +45,22 @@
 		"max-length": 50
 	},
 
+	"custom/player": {
+		"format": "{}",
+		"return-type": "json",
+		"exec": "~/.local/lib/waybar/playerctl.sh",
+		"interval": 1,
+		"on-click": "~/.local/lib/waybar/playerctl.sh play-pause",
+		"on-click-right": "~/.local/lib/waybar/playerctl.sh next",
+		"on-click-middle": "~/.local/lib/waybar/playerctl.sh previous",
+		"on-scroll-up": "~/.local/lib/waybar/playerctl.sh volume-up",
+		"on-scroll-down": "~/.local/lib/waybar/playerctl.sh volume-down",
+		"escape": true
+	},
+
 	"custom/distro": {
-		"format": "󰣛"
+		"format": "{}",
+		"return-type": "json",
+		"exec": "~/.local/lib/waybar/distro.sh"
 	}
 }
